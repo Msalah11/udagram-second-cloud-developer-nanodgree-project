@@ -41,7 +41,6 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
         const image_url = req.query.image_url;
         if (image_url) {
             filterImageFromURL(image_url).then((response) => {
-                console.log('response', response)
                 res.sendFile(response);
                 res.on('finish', function() {
                     deleteLocalFiles([response]);
